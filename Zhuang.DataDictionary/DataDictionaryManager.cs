@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Zhuang.DataDictionary
 {
-    public class Class1
+    public class DataDictionaryManager
     {
+
     }
 }

@@ -43,7 +43,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DataDictionaryManager.cs" />
+    <Compile Include="Common\Enums.cs" />
     <Compile Include="Models\SysDataDictionaryDetail.cs" />
     <Compile Include="Models\SysDataDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
