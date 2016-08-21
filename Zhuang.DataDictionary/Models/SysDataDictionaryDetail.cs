@@ -16,11 +16,15 @@ namespace Zhuang.DataDictionary.Models
         public string Code { get; set; }
 
         public string Text { get; set; }
-
-        public int Status { get; set; }
+        
+        public string Description { get; set; }
 
         public int Seq { get; set; }
 
-        public string Description { get; set; }
+        public int Status { get; set; }
+
+        public DateTime? CreatedDate { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
     }
 }
