@@ -22,15 +22,24 @@ namespace Zhuang.DataDictionary
             _service = service;
         }
 
-        public IList<DataDictionaryItemModel> GetDataDictionaryItems(string code)
+        public IList<DataDictionaryItemModel> GetItemsByCode(string code)
         {
             IList<DataDictionaryItemModel> result = new List<DataDictionaryItemModel>();
 
             var master = _service.GetByCode(code);
 
-            var details = _service.GetDetailList(master.DataDictionaryId);
+            result = GetItemsById(master.DataDictionaryId);
 
-            var enabledDetails = details.Where(c => c.Status == (int)StatusType.Enabled);
+            return result;
+        }
+
+        public IList<DataDictionaryItemModel> GetItemsById(string Id)
+        {
+            IList<DataDictionaryItemModel> result = new List<DataDictionaryItemModel>();
+
+            var details = _service.GetDetailList(Id);
+
+            var enabledDetails = details.Where(c => c.Status == (int)StatusType.Enabled).OrderBy(c => c.Seq);
 
             result = enabledDetails.Select(c => new DataDictionaryItemModel() { Code = c.Code, Text = c.Text }).ToList();
 
